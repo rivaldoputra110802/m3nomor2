@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<body>
+<h1>Validasi Input</h1>
+<p>Masukkan nama, password dan alamat anda :</p>
+Nama : <input type="text" id="nama"><br>
+Password : <input type="password" id="inputsaya"><br>
+<input type="checkbox" onclick="fungsi()">Perlihatkan Password<br>
+E-mail : <input type = "text" id="alamatemail"><br>
+<button onclick="cekpassword()">Klik</button>
+<p>Catatan : Masukkan nama dan email bebas dan akan muncul pada peringatan halaman sesuai nama dan email tersebut apabila password benar. Sebaliknya bila password salah, 
+akan muncul peringatan menunjukkan password salah. Saat mengisi password kita bisa melihat/menyembunyikan masukan password dengan klik centang pada box "Perlihatkan Password". 
+Jika belum mengisi satu atau dua atau seluruh isian form juga akan muncul peringatan belum mengisikan komponen form tersebut.</p>
+<script>
+function fungsi() {
+  var x = document.getElementById("inputsaya");
+  if (x.type === "password") {
+    x.type = "text";
+  } else {
+    x.type = "password";
+  }
+}
+function cekpassword() {
+	var password = document.getElementById("inputsaya").value;
+	var org = document.getElementById("nama").value;
+	var alamat = document.getElementById("alamatemail").value;
+	
+	if (org!=="" && alamat!== "" && password == "sss" ) {
+		alert("Halo! "+org+" dengan email "+alamat+" Password Anda benar.");
+		
+	}
+	else if(org !== "" && alamat !== "" && password !== "sss" &password !== "") {
+		alert("Password Anda salah!");	
+	}
+	else if (org =="" && alamat!=="" && password !== "") {
+		alert("Anda belum isikan nama!");
+	}
+	else if (org !== "" && alamat !== "" && password =="") {
+		alert("Anda belum isikan password!");
+	}
+	else if (org !== "" && alamat =="" && password !=="") {
+		alert("Anda belum masukkan email!");
+	}
+	else if (org == "" && password =="" && alamat !== "") {
+		alert("Anda belum masukkan nama dan password!");
+	}
+	else if (org == "" && password !=="" && alamat == "") {
+		alert("Anda belum masukkan nama dan email!");
+	}
+	else if (org !== "" && password =="" && alamat == "") {
+		alert("Anda belum masukkan password dan email!");
+	}
+	else if (org == "" && password =="" && alamat == "") {
+		alert("Anda belum masukkan seluruh komponen form! (GAME OVER)");
+	}
+}
+
+</script>
+
+</body>
+</html>
